@@ -3,7 +3,7 @@
         <div class="nav-icon-wrapper"
         v-for="(tab,index) in tabs" :key="index">
             <router-link :to='tab.href' active-class="active">
-                <i :class="['iconfont', tab.icon]"></i>
+                <i :class="['iconfont', tab.icon]"></i><br>
                 <span class="nav-text">{{tab.name}}</span>
             </router-link>
         </div>
@@ -43,7 +43,14 @@ export default {
     flex: 1;
     margin-top:5px;
 }
-.bottom-nav-bar .nav-icon-wrapper i{
+.bottom-nav-bar .nav-icon-wrapper a{
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    width:100%;
+    height: 100%;
+}
+.bottom-nav-bar .nav-icon-wrapper .iconfont{
     font-size: 20px;
 }
 </style>
