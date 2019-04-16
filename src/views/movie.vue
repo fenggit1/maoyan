@@ -10,45 +10,23 @@
           <i class="iconfont icon-xiajiantou"></i>
         </div>
         <div class="switch-hot">
-          <div class="hot-item">正在热映</div>
-          <div class="hot-item">即将上映</div>
+          <router-link tag="div" to="/movie/n-hot" active-class="active" class="hot-item">正在热映</router-link>
+          <router-link tag="div" to="/movie/f-hot" active-class="active" class="hot-item">即将上映</router-link>
         </div>
         <div class="search">
           <i class="iconfont icon-fangdajing"></i>
         </div>
       </div>
     </div>
-
-    <div class="movie">
-      <div class="n-hot">
-        <div class="list-wrap">
-          <div class="list-item">
-            <dl>
-              <dt>
-                <img src="images/1.jpg" alt>
-              </dt>
-              <dd>
-                <p>反贪风暴4</p>
-                <p>
-                  观众评
-                  <span>9.2</span>
-                </p>
-                <p>主演: 古天乐,郑嘉颖,林峯</p>
-                <p>今天262家影院放映4043场</p>
-              </dd>
-            </dl>
-            <button>购票</button>
-          </div>
-        </div>
-      </div>
-    </div>
+    <router-view></router-view>
+    
   </div>
 </template>
 
 <script>
 export default {
     
-}
+    }
 </script>
 
 <style >
@@ -89,6 +67,10 @@ export default {
     display: flex;
     font-weight: 900;
 }
+.nav .switch-hot .active{
+  color:#e54847;
+  border-bottom:2px solid #e54847;
+}
 .nav .switch-hot .hot-item{
     padding:0 10px 0 10px;
 }
@@ -99,61 +81,5 @@ export default {
     font-size: 18px;
     color:#e54847;
     font-weight: 900;
-}
-
-/* 内容部分 */
-.list-wrap{
-    padding:15px 15px 15px 15px;
-    
-}
-.list-item{
-    display: flex;
-    justify-content: space-between;
-    margin-bottom:15px;
-}
-.list-item dl{
-    display: flex;
-    
-}
-.list-item dl dt img{
-    width:64px;
-    height: 9px;
-    margin-right:10px;
-}
-.list-item dl dd p:nth-child(1){
-    font-size: 17px;
-    color: #333;
-    font-weight: 700;
-}
-.list-item dl dd p:nth-child(2){
-    font-size: 13px;
-    color: #666;
-    font-weight: 300;
-    line-height: 25px;
-}
-.list-item dl dd p:nth-child(3){
-    font-size: 13px;
-    color: #666;
-    font-weight: 300;
-    line-height: 22px;
-}
-.list-item dl dd p:nth-child(4){
-    font-size: 13px;
-    color: #666;
-    font-weight: 300;
-    line-height:22px;
-}
-.list-item button{
-    font-size: 12px;
-    height: 28px;
-    width:50px;
-    line-height: 28px;
-    text-align: center;
-    box-sizing: border-box;
-    background-color: #f03d37;
-    color: #fff;
-    border-radius: 4px;
-    border:none;
-    margin-top:30px;
 }
 </style>
