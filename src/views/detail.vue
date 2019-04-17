@@ -49,7 +49,7 @@
             </li>
         </ul>
     </div>
-    <router-link tag="div" :to="{ name:'cinema',params:{ id:cinema.id}}" id="content_wrapper"
+    <router-link tag="div" :to="{ params:{ id:cinema.id}}" id="content_wrapper"
      v-for="cinema in cinemas" :key="cinema.id">
         <div class="content">
             <div class="text_h">
@@ -119,8 +119,11 @@ export default {
     created(){
         this.getmoviedetail();
         this.getcinemalist();
+    },
+    beforeRouteUpdate(to,from,next){
+        this.getmoviedetail();
+        next()
     }
-    
 }
 </script>
 

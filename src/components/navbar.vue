@@ -42,6 +42,9 @@ export default {
     -webkit-box-flex: 1;
     flex: 1;
 }
+.bottom-nav-bar .nav-icon-wrapper .active{
+    color:#f03d37;
+}
 .bottom-nav-bar .nav-icon-wrapper a{
     text-decoration: none;
     display: block;
