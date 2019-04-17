@@ -7,7 +7,7 @@
         :key="movie.id">
           <dl>
             <dt>
-              <img src="../assets/1.jpg">
+              <img :src="movie.img.replace('w.h','128.180')">
             </dt>
             <dd>
               <p>{{movie.nm}}</p>

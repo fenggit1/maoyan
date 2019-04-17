@@ -18,7 +18,7 @@
                 </li>
             </ul>
         </div>
-        <div id="content_wrapper">
+        <div id="wrapper">
             <div class="content"
             v-for="cinema in cinemaslist"
             :key="cinema.id">
@@ -100,57 +100,57 @@ export default {
         padding-top: 3px;
         margin-left: 4px;
     }
-    #content_wrapper{
+    #wrapper{
         background: #fff;
-        padding: 13px 15px 13px 0;
+    }
+    #wrapper .content{
+        background: #fff;
         margin-left: 15px;
+        padding: 13px 15px 13px 0;
         border-bottom: 1px solid #e6e6e6;
     }
-    #content_wrapper .content{
-        background: #fff;
-    }
-    #content_wrapper .content .text_h{
+    #wrapper .content .text_h{
         display: flex;
         justify-content: left;
         line-height: 23px;
     }
-    #content_wrapper .content .text_h h3{
+    #wrapper .content .text_h h3{
         font-size: 16px;
         color: #000;
     }
-    #content_wrapper .content .text_h .money{
+    #wrapper .content .text_h .money{
         display: flex;
         justify-content: left;
         color: #f03d37;
         margin-left: 5px;
         font-size: 11px;
     }
-    #content_wrapper .content .text_h .money .to{
+    #wrapper .content .text_h .money .to{
         position: relative;
         top: -1px;
         font-size: 18px; 
         display: block;
         margin-right: 2px;
     }
-    #content_wrapper .content .text_diz{
+    #wrapper .content .text_diz{
         display: flex;
         justify-content: space-between;
         margin-top: 6px;
         font-size: 13px;
         color: #666;
     }
-    #content_wrapper .content .text_diz .diz{
+    #wrapper .content .text_diz .diz{
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
     }
-    #content_wrapper .content .t_sp{
+    #wrapper .content .t_sp{
         display: flex;
         justify-content: left;
         font-size: .6rem;
         margin-top: 3px;
     }
-    #content_wrapper .content .t_sp .gai{
+    #wrapper .content .t_sp .gai{
         position: relative;
         display: inline-block;
         padding: 0 3px;
@@ -161,7 +161,7 @@ export default {
         color: #589daf;
         border: 1px solid #589daf;
     }
-    #content_wrapper .content .t_sp .chi{
+    #wrapper .content .t_sp .chi{
         position: relative;
         display: inline-block;
         padding: 0 3px;
@@ -173,7 +173,7 @@ export default {
         border: 1px solid #f90;
         margin-left: 5px;
     }
-    #content_wrapper .content .t_sp .ka{
+    #wrapper .content .t_sp .ka{
         position: relative;
         display: inline-block;
         padding: 0 3px;
@@ -185,12 +185,12 @@ export default {
         border: 1px solid #f90;
         margin-left: 5px;
     }
-    #content_wrapper .content .text_ka{
+    #wrapper .content .text_ka{
         display: flex;
         justify-content: left;
         margin-top: 5px;
     }
-    #content_wrapper .content .text_ka .lka{
+    #wrapper .content .text_ka .lka{
         display: flex;
         justify-content: center;
         align-items: center;
@@ -199,7 +199,7 @@ export default {
         font-size: 11px;
         color: #fff;
     }
-    #content_wrapper .content .text_ka .t_k{
+    #wrapper .content .text_ka .t_k{
         font-size: 11px;
         color: #999;
         margin-left: 5px;

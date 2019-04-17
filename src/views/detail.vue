@@ -6,7 +6,7 @@
     <div class="movie-banner">
       <div class="detail">
         <div class="poster">
-          <img src='../assets/1.jpg'>
+          <img :src="detail.img.replace('w.h','128.180')">
         </div>
         <div class="content">
           <div class="title">{{detail.nm}}</div>

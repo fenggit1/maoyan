@@ -20,10 +20,11 @@ const router = new VueRouter({
                 },
                 { path:'cinemas', component:()=> import('./views/cinemas.vue') },
                 { path:'center', component:()=> import('./views/center.vue') },
-                
+                { path:'',redirect:'/movie/n-hot'}
             ]
         },
         { path:'/cinema/movie/:id',name:'detail', component:()=>import('./views/detail.vue')},
+        { path:'shows/:id',name:'shdetail',component:()=>import('./views/Sdetail.vue')},
         { 
             path:'/movieorder',name:'order', component:()=>import('./views/movieorder.vue'),
             beforeEnter:(to,from,next)=>{
