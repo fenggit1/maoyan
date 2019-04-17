@@ -1,9 +1,11 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 
+window.islogin = false;
+
 Vue.use(VueRouter);
 
-export default new VueRouter({
+const router = new VueRouter({
     routes:[
         {
             path:'/',
@@ -21,7 +23,42 @@ export default new VueRouter({
                 
             ]
         },
-        { path:'/cinema/movie/:id',name:'detail', component:()=>import('./views/detail.vue')}
+        { path:'/cinema/movie/:id',name:'detail', component:()=>import('./views/detail.vue')},
+        { 
+            path:'/movieorder',name:'order', component:()=>import('./views/movieorder.vue'),
+            beforeEnter:(to,from,next)=>{
+                
+                if(!window.islogin){
+                    next({
+                        path:'/login',
+                        query:{
+                            redirect:to.fullPath
+                        }
+                    })
+                }else{
+                    next();
+                }
+            }
+        },
+        { 
+            path:'/login',component:()=>import('./views/login.vue'),
+            beforeEnter:(to,from,next)=>{
+                
+                next()
+            }
+        },
+        { path:'*',redirect:'/movie/n-hot'}
         
     ]
 })
+
+router.beforeEach ((to, from, next) => {
+    // ...
+    next();
+})
+
+router.afterEach ((to, from) => {
+    // ...
+    
+})
+export default router;
