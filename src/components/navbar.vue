@@ -41,7 +41,6 @@ export default {
     color: #f03d37;
     -webkit-box-flex: 1;
     flex: 1;
-    margin-top:5px;
 }
 .bottom-nav-bar .nav-icon-wrapper a{
     text-decoration: none;

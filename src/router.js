@@ -14,6 +14,7 @@ export default new VueRouter({
                 { path:'center', component:()=> import('./views/center.vue') },
             ]
         },
+        { path:'/shows/:id',name: 'detail', component:()=> import('./views/Sdetail.vue') },
         
     ]
 })
