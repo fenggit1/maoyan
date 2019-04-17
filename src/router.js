@@ -9,12 +9,19 @@ export default new VueRouter({
             path:'/',
             component:()=>import('./views/home.vue'),
             children:[
-                { path:'movie', component:()=> import('./views/movie.vue') },
+                { path:'movie', component:()=> import('./views/movie.vue') ,
+                    children:[
+                        { path:'n-hot',component:()=>import('./components/n-hot.vue')},
+                        { path:'f-hot',component:()=>import('./components/f-hot.vue')},
+                        { path:'',redirect:'/movie/n-hot'}
+                    ]
+                },
                 { path:'cinemas', component:()=> import('./views/cinemas.vue') },
                 { path:'center', component:()=> import('./views/center.vue') },
+                
             ]
         },
-        { path:'/shows/:id',name: 'detail', component:()=> import('./views/Sdetail.vue') },
-        
+        { path:'/shows/:id',name: 'shdetail', component:()=> import('./views/Sdetail.vue') },
+        { path:'/cinema/movie/:id',name:'detail', component:()=>import('./views/detail.vue')},
     ]
 })

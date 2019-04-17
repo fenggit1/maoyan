@@ -22,7 +22,7 @@
             <div class="content"
             v-for="cinema in cinemaslist"
             :key="cinema.id">
-            <router-link  :to="{name: 'detail',params:{id:cinema.id}}">
+            <router-link  :to="{name: 'shdetail',params:{id:cinema.id}}">
                 <div class="text_h">
                     <h3>{{cinema.nm}}</h3>
                     <div class="money">
