@@ -2,6 +2,7 @@
 <template>
     <div>
         <header class="navbar">
+            <a class="back" @click="fn1"><i class="iconfont icon-arrow-left"></i></a>
             <div class="navbar_left">
                 <a href="">
                     
@@ -107,6 +108,9 @@ export default {
    },
 
     methods:{
+        fn1(){
+            this.$router.go(-1);
+        },
         //轮播图
         getbanner() {
             Axios.get("/api/ajax/cinemaDetail",{
@@ -140,7 +144,11 @@ export default {
     display: flex;
     width: 100%;
 }
-
+.navbar>a{
+    position: absolute;
+    color:white;
+    left:10px;
+}
 .navbar .navbar_left a {
     font-size: 30px;
     text-decoration: none;
