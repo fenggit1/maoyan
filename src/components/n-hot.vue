@@ -46,7 +46,6 @@ export default {
           let data = res.data;
           
           this.movies = data.movieList;
-          console.log(this.movies);
         }).catch(error =>{
           alert('n-hot出错了')
         })

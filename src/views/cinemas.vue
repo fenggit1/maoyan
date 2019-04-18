@@ -34,7 +34,6 @@ export default {
         .then(res => {
           let data = res.data;
           this.cinemas = data.cinemas
-         console.log(data)
         })
         .catch(error => {
           console.log("出现错误");
