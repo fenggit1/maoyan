@@ -1,5 +1,8 @@
 <template>
+ 
   <div class="movie">
+    <p>近期最受期待</p>
+    <banner></banner>
     <div class="n-hot">
       <div class="list-wrap">
         <div class="list-item"
@@ -28,7 +31,11 @@
 
 <script>
 import axios from 'axios';
+import banner from './banner.vue'
 export default {
+    components:{
+      banner,
+    },
     data(){
       return {
         movies:[]
@@ -58,6 +65,11 @@ export default {
 </script>
 
 <style scoped>
+.movie>p{
+  margin:15px 0 15px 20px;
+  font-size: 16px;
+  color: #333; 
+}
 /* 内容部分 */
 .list-wrap{
     padding:15px 15px 15px 15px;
