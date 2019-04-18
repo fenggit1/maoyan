@@ -1,6 +1,7 @@
 <template>
   <div>
     <header class="navbar">
+      <a class="back" @click="fn1"><i class="iconfont icon-arrow-left"></i></a> 
       <h2 class="nav-title">{{detail.nm}}</h2>
     </header>
     <div class="movie-banner">
@@ -88,6 +89,9 @@ export default {
         }
     },
     methods:{
+        fn1(){
+            this.$router.go(-1);
+        },
         getmoviedetail(){
             axios.get('/api/ajax/detailmovie',{
                 params:{
@@ -129,6 +133,7 @@ export default {
 
 <style>
 header{
+    position: relative;
     width:100%;
     height: 50px;
     line-height: 50px;
@@ -136,6 +141,11 @@ header{
     background: #e54847;
     font-size: 18px;
     color:white;
+}
+header>a{
+    position: absolute;
+    color:white;
+    left:10px;
 }
 
 .detail{

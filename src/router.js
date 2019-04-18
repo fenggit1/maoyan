@@ -14,7 +14,12 @@ const router = new VueRouter({
                 { path:'movie', component:()=> import('./views/movie.vue') ,
                     children:[
                         { path:'n-hot',component:()=>import('./components/n-hot.vue')},
-                        { path:'f-hot',component:()=>import('./components/f-hot.vue')},
+                        { 
+                            path:'f-hot',component:()=>import('./components/f-hot.vue'),
+                            children:[
+                                { path:'banner',component:()=>import('./components/banner.vue')}
+                            ]
+                        },
                         { path:'',redirect:'/movie/n-hot'}
                     ]
                 },
