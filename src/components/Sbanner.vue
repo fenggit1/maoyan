@@ -2,7 +2,7 @@
   <div>
     <div class="swiper-container">
       <div class="swiper-wrapper">
-        <div class="swiper-slide" v-for="sb in sBanner" :key="sb.id">
+        <div class="swiper-slide" v-for="sb in sBanner" :key="sb.id" :name="sb.id">
             <img :src="sb.img.replace('w.h','74.109')" alt>
         </div>
       </div>
@@ -23,8 +23,17 @@
 
 
 <script>
+
+import merge from 'webpack-merge';
 import Swiper from "swiper";
 export default {
+  data(){
+    return {
+        movieid:'',
+        showdata:''
+
+    }  
+  },
   props: {
     sBanner: {
       type: Array
@@ -34,20 +43,48 @@ export default {
     console.log(this.sBanner);
   },
   updated() {
+    var that = this;
     new Swiper(".swiper-container", {
       slidesPerView: 4,
       spaceBetween: 30,
-	  centeredSlides: true,
+      centeredSlides: true,
+      on: {
+        slideChangeTransitionStart: function(){
+            var num =  that.getlist();
+            that.movieid = num;
+             getshowdata(movieid)
+        },
+  },
     });
-    this.changeurl();
+     this.changeurl();
   },
   methods:{
-    //   changeurl(){
-    //       this.$route.fullPath.push({params:{}})
-    //       console.log(this.$route)
-    //   }
-  },
+      changeurl(){
+          let url = `${this.sBanner[0].id}`
+          this.$router.push({query: { movieid: url }})
+      },
+      getlist(){
+          let slide = document.getElementsByClassName('swiper-slide');
+          
+          for(let i = 0;i <= slide.length;i++){
+              if(slide[i].className.match('.swiper-slide-active')){
+                  
+                  this.id=slide[i].getAttribute("name")
+                  console.log(this.id)
+                return this.id
+              }
+          }
 
+      },
+      getshowdata(movieid){
+          var index = this.sBanner.findIndex(item=>item.id === movieid);
+          var data = this.sBanner[index].shows;
+          this.showdata = data;
+      }
+  },
+  computed:{
+      
+  }
 };
 </script>
 
