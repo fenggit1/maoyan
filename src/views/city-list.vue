@@ -121,10 +121,7 @@ export default {
     },
     fn2(py){
       var el = document.getElementById(py);
-      var box = document.getElementById('lv-indexlist__content');
-      box.scrollTop = el.offsetTop;
-      console.log(el.offsetTop)
-      console.log(box.scrollTop)
+      document.documentElement.scrollTop = el.offsetTop;
     },
   },
 
@@ -162,7 +159,7 @@ export default {
     &__content {
       flex: 1;
       height: 100%;
-      //overflow-y: auto;
+      overflow-y: auto;
     }
     &__nav {
       display: flex;
