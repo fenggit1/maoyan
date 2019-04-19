@@ -29,7 +29,7 @@ const router = new VueRouter({
             ]
         },
         { path:'/cinema/movie/:id',name:'detail', component:()=>import('./views/detail.vue')},
-        { path:'shows/:id',name:'shdetail',component:()=>import('./views/Sdetail.vue')},
+        { path:'/shows/:id',name:'shdetail',component:()=>import('./views/Sdetail.vue')},
         { 
             path:'/movieorder',name:'order', component:()=>import('./views/movieorder.vue'),
             beforeEnter:(to,from,next)=>{
