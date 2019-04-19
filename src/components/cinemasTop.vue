@@ -4,10 +4,10 @@
             <h1>影院</h1>
         </div>
         <div id="seach">
-            <div class="seach_left">
+            <router-link to="/city-list" tag="div" class="seach_left">
                 <span>深圳</span>
                 <i class="iconfont icon-xiajiantou"></i>
-            </div>
+            </router-link>
             <div class="seach_right">
             <i class="iconfont  icon-fangdajing"></i>
             <span>搜影院</span>

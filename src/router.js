@@ -49,12 +49,12 @@ const router = new VueRouter({
         { 
             path:'/login',component:()=>import('./views/login.vue'),
             beforeEnter:(to,from,next)=>{
-                
+
                 next()
             }
         },
-        { path:'*',redirect:'/movie/n-hot'}
-        
+        { path:'*',redirect:'/movie/n-hot'},
+        { path:'/city-list',component: ()=>import('./views/city-list.vue')},
     ]
 })
 

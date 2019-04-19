@@ -114,7 +114,6 @@ export default {
             }).then(res=>{
                 let data = res.data;
                 this.cinemas = data.cinemas;
-                console.log(this.cinemas);
             }).catch(error=>{
                 alert('detail-cinema出错了')
             })

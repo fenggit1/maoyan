@@ -36,7 +36,7 @@ export default {
           this.cinemas = data.cinemas
         })
         .catch(error => {
-          console.log("出现错误");
+          alert("出现错误");
         });
     }
   },
