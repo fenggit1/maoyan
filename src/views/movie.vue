@@ -6,7 +6,7 @@
     <div class="body">
       <div class="nav">
         <div class="city">
-          <span class="city-name">深圳</span>
+          <router-link  to="/city-list"  class="city-name">深圳</router-link>
           <i class="iconfont icon-xiajiantou"></i>
         </div>
         <div class="switch-hot">

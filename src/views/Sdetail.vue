@@ -142,6 +142,7 @@ export default {
     background: #e54847;
     border-bottom: 1px solid #e54847;
     display: flex;
+    align-items: center;
     width: 100%;
 }
 .navbar>a{
