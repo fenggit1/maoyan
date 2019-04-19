@@ -3,14 +3,14 @@
     <div class="mover_info">
       <div class="mover_infoTop">
         <span class="moverTop_a">
-          反贪风暴4
+          {{movie.nm}}
           <span class="moverTop_b">
-            9.1
+            {{movie.sc}}
             <span class="moverTop_c">分</span>
           </span>
         </span>
       </div>
-      <div class="mover_infoTBtn">98分钟 &nbsp;| &nbsp;剧情 &nbsp;| &nbsp;古天乐,黎志枫,张浩然</div>
+      <div class="mover_infoTBtn">{{movie.desc}}</div>
     </div>
     <div class="mover_time">
       <span class="time_ted">今日4月15日</span>
@@ -24,9 +24,9 @@
       </a>
     </div>
     <div class="list_warp">
-      <div class="list_item">
+      <div class="list_item" v-for="item in movie.shows[0].plist" :key="item">
         <div class="item_left">
-          <div>19:30</div>
+          <div>{{item.tm}}</div>
           <div>21:11&nbsp;散场</div>
         </div>
         <div class="item_block">
@@ -58,75 +58,25 @@
 
 <script>
 import Axios from "axios";
-import merge from "webpack-merge";
-import Swiper from "swiper";
 export default {
+    props:{
+            movie:{
+                type:Object
+            }
+        },
   data() {
     return {
-      movieid: "",
-      showdata: ""
+        
     };
   },
-  props: {
-    sBanner: {
-      type: Array
-    }
-  },
-  mounted() {},
+  
+  mounted(){},
 
   methods: {
-    // changeurl(){
-    //     let url = `${this.sBanner[0].id}`
-    //     this.$router.push({query: { movieid: url }})
-    // },
-
-    // getshowdata(item){
-    //   var movie = this.movieid;
-    //   var arr = this.sBanner;
-    //   // console.log(arr);
-    //   // console.log(checkAdult());
-    //   // var arr=[{id:1,name:'我'},{id:2,name:'你'}]
-    //   // var index = arr.findIndex(item=>item.id === 2)
-    //     var index = arr.findIndex((value,index,arr)=>{
-    //       if(value.id==movie){
-    //         return index
-    //       }
-    //     } );
-    //       console.log(index)
-    //     // console.log(this.sBanner);
-    //     // console.log(item);
-    //     // console.log(index);
-    //     var data = this.sBanner[index];
-    //     this.showdata = data;
-    //     console.log(data);
-
-    getmovielist() {
-      let that = this;
-      Axios.get(
-        "/api/ajax/cinemaDetail?cinemaId=23768&movieId=1211727",
-        {
-          params: {
-            cinemaId: this.$route.params.id,
-            movieId: that.getlist()
-          }
-        },
-        {
-          headers: {
-            "Content-Type": "application/json; charset=utf-8"
-          }
-        }
-      )
-        .then(res => {
-          let data = res.data;
-          that.showdata = data.showData.movies;
-          console.log(that.showdata);
-        })
-        .catch(error => {
-          console.log("出现错误");
-        });
+ 
     }
-  }
-};
+}
+
 </script>
 
 

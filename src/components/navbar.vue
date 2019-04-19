@@ -35,6 +35,7 @@ export default {
 
 .bottom-nav-bar .nav-icon-wrapper {
     display:flex;
+    margin-top:6px;
     flex-direction: column;
     width: 25px;
     align-items:center;
