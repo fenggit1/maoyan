@@ -24,9 +24,9 @@
       </a>
     </div>
     <div class="list_warp">
-      <div class="list_item" v-for="item in movie.shows[0].plist" :key="item">
+      <div class="list_item">
         <div class="item_left">
-          <div>{{item.tm}}</div>
+          <div>{{movie.nm}}</div>
           <div>21:11&nbsp;散场</div>
         </div>
         <div class="item_block">
@@ -48,7 +48,7 @@
           </div>
           <div class="item_priceb">折扣卡首单优惠</div>
         </div>
-        <div class="button">购票</div>
+        <button class="button" @click="cartadd">购票</button >
       </div>
     </div>
     
@@ -57,6 +57,7 @@
 
 
 <script>
+import {mapState} from "vuex";
 import Axios from "axios";
 export default {
     props:{
@@ -64,16 +65,26 @@ export default {
                 type:Object
             }
         },
-  data() {
-    return {
-        
-    };
-  },
-  
-  mounted(){},
+    data() {
+        return {
+            
+        };
+    },
 
-  methods: {
- 
+
+    methods:{
+        cartadd(){
+            this.$store.commit('cartadd');
+            console.log(this.movie)
+            console.log(this)
+    }},
+    computed: {
+        cartinfo(){
+            return this.$store.state.cartinfo  
+        },
+        // movieinfo(){
+        //     return this.$store.state.movieinfo
+        // }
     }
 }
 

@@ -15,7 +15,7 @@
                 <div class="orders">
                     <div class="title"><P>我的订单</P></div>
                     <div class="order">
-                        <router-link tag='div' to='/movieorder' class="order-item movie">
+                        <router-link tag='div' :to="{name:'order'}" class="order-item movie">
                             <a ><img src="../assets/maoyan.jpg"><p>电影</p></a>
                         </router-link>
                         <div class="order-item store">

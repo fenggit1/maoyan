@@ -50,7 +50,7 @@
             </li>
         </ul>
     </div>
-    <router-link tag="div" :to="{ params:{ id:cinema.id}}" id="content_wrapper"
+    <router-link tag="div" :to="{name: 'shdetail',params:{id:cinema.id}}" id="content_wrapper"
      v-for="cinema in cinemas" :key="cinema.id">
         <div class="content">
             <div class="text_h">
@@ -285,7 +285,7 @@ header>a{
 #content_wrapper .content .t_sp{
     display: flex;
     justify-content: left;
-    font-size: .6rem;
+    
     margin-top: 3px;
 }
 #content_wrapper .content .t_sp .gai{
@@ -295,7 +295,7 @@ header>a{
     height: 15px;
     line-height: 15px;
     border-radius: 2px;
-    font-size: .6rem;
+    
     color: #589daf;
     border: 1px solid #589daf;
 }
@@ -306,7 +306,7 @@ header>a{
     height: 15px;
     line-height: 15px;
     border-radius: 2px;
-    font-size: .6rem;
+    
     color: #f90;
     border: 1px solid #f90;
     margin-left: 5px;
@@ -318,7 +318,7 @@ header>a{
     height: 15px;
     line-height: 15px;
     border-radius: 2px;
-    font-size: .6rem;
+    
     color: #f90;
     border: 1px solid #f90;
     margin-left: 5px;

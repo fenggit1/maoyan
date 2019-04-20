@@ -4,15 +4,16 @@
       <a class="back" @click="fn1"><i class="iconfont icon-arrow-left"></i></a> 
       <h2 class="nav-title">确认订单</h2>
     </header>
+    <div v-for="item in cartinfo" :key="item.id">
     <div class="content">
       <div class="order-info">
         <div class="info-img">
-          <img src="../assets/1.jpg" alt>
+          <img src="" alt>
         </div>
         <div class="info-list">
-          <div class="title">反贪风暴4</div>
-          <div class="src">中国香港,中国大陆/98分钟</div>
-          <div class="pubDesc">2019-04-04大陆上映</div>
+          <div class="title">{{cartinfo.nm}}</div>
+          <div class="src">XXX/影片时间分钟</div>
+          <div class="pubDesc">影片信息</div>
           <div class="price">价格:</div>
         </div>
       </div>
@@ -24,21 +25,54 @@
           <button>+</button>
         </div>
       </div>
-      <div class="submit">
+      </div>
+    </div>
+    <div class="submit">
         <p>合计：</p>
         <button>加入购物车</button>
-      </div>
     </div>
   </div>
 </template>
 
 <script>
+import {mapState} from "vuex";
+import axios from "axios";
+
 export default {
+  data(){
+    return {
+      detail:[],
+    }
+  },
     methods:{
         fn1(){
             this.$router.go(-1);
         },
-    }
+        getmoviedetail(){
+            axios.get('/api/ajax/detailmovie',{
+                params:{
+                    movieId: this.$route.params.id,
+                }
+            }).then(res=>{
+                let data = res.data;
+                this.detail = data.detailMovie;
+                // console.log(this.detail);
+                // console.log(this.$route.params.id);
+            }).catch(error =>{
+                alert('n-hot出错了')
+            })
+        },
+    },
+    created(){
+        //this.getmoviedetail();
+       
+    },
+    
+    // computed:{
+    //   cartinfo(){
+    //     return this.$store.state.cartinfo
+    //   }
+    // },
 };
 </script>
 
@@ -87,7 +121,6 @@ header>a{
   font-size: 20px;
 }
 .amount {
-  margin-top: 10px;
   display: flex;
   width: 100%;
   height: 50px;
